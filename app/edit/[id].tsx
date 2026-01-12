@@ -61,6 +61,7 @@ export default function EditNoteScreen() {
     loadNote();
   }, [id]);
 
+  // Animasyonu her ekrana girildiğinde başlat (not yüklendikten sonra)
   useFocusEffect(
     useCallback(() => {
       if (!loading && note) {

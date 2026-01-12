@@ -61,7 +61,7 @@ export default function TechnicalDocumentationScreen() {
             },
           ]}>
           <Text style={styles.mainTitle}>
-            Çetele: Merkezi Olmayan Şifreli Not Uygulaması
+            Çetele: Merkeziyetsiz Şifreli Not Uygulaması
           </Text>
 
           <Text style={styles.abstract}>
@@ -78,7 +78,7 @@ export default function TechnicalDocumentationScreen() {
                 Geleneksel not alma uygulamaları, kullanıcı verilerini merkezi sunucularda
                 depolar ve bu veriler üzerinde tam kontrol sahibi olmayı sağlamaz. Çetele,
                 Nostr (Notes and Other Stuff Transmitted by Relays) protokolünü kullanarak
-                merkezi olmayan bir mimari sunar ve NIP-44 şifreleme standardı ile verilerinizi
+                merkeziyetsiz bir mimari sunar ve NIP-44 şifreleme standardı ile verilerinizi
                 kriptografik olarak korur.
               </Text>
               <Text style={styles.paragraph}>
@@ -485,7 +485,7 @@ export default function TechnicalDocumentationScreen() {
             <View style={styles.sectionContent}>
               <Text style={styles.sectionTitle}>Sonuç</Text>
               <Text style={styles.paragraph}>
-                Çetele, modern kriptografik ilkeleri Nostr'un merkezi olmayan mimarisi ile
+                Çetele, modern kriptografik ilkeleri Nostr'un merkeziyetsiz mimarisi ile
                 birleştirerek güvenli, özel ve sansüre dayanıklı bir not alma sistemi sunar.
               </Text>
               <Text style={styles.paragraph}>

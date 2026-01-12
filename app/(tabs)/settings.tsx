@@ -37,7 +37,9 @@ import {
   X,
   BookOpen,
   ChevronRight,
+  Github,
 } from 'lucide-react-native';
+import { Linking } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { nostrService, AuthMethod, type UserRelay } from '@/lib/nostr';
@@ -437,6 +439,18 @@ export default function SettingsScreen() {
       return '••••••••••••••••••••••••••••••••';
     }
     return key;
+  };
+
+  const handleGithubPress = async () => {
+    try {
+      const url = 'https://github.com/teskilatsiz';
+      const supported = await Linking.canOpenURL(url);
+      if (supported) {
+        await Linking.openURL(url);
+      }
+    } catch (error) {
+      console.error('Error opening GitHub link:', error);
+    }
   };
 
 
@@ -864,7 +878,21 @@ export default function SettingsScreen() {
         )}
 
         <Animated.View style={styles.footer}>
-          <Text style={styles.developerText}>Teşkilatsız</Text>
+          <TouchableOpacity
+            style={styles.developerCard}
+            onPress={handleGithubPress}
+            activeOpacity={0.8}>
+            <BlurView intensity={30} tint="dark" style={styles.developerBlur}>
+              <View style={styles.developerIconContainer}>
+                <Github size={20} color="#0A84FF" strokeWidth={2.5} />
+              </View>
+              <View style={styles.developerContent}>
+                <Text style={styles.developerLabel}>Geliştirici</Text>
+                <Text style={styles.developerName}>Teşkilatsız</Text>
+              </View>
+              <ChevronRight size={20} color="#636366" strokeWidth={2.5} />
+            </BlurView>
+          </TouchableOpacity>
         </Animated.View>
       </ScrollView>
 
@@ -1355,26 +1383,42 @@ const styles = StyleSheet.create({
     marginTop: 48,
     marginBottom: 24,
     marginHorizontal: 24,
+  },
+  developerCard: {
+    borderRadius: 18,
+    overflow: 'hidden',
+  },
+  developerBlur: {
+    flexDirection: 'row',
+    padding: 20,
+    gap: 16,
     alignItems: 'center',
-    gap: 6,
+    backgroundColor: 'rgba(28, 28, 30, 0.95)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
   },
-  footerText: {
+  developerIconContainer: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    backgroundColor: 'rgba(10, 132, 255, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  developerContent: {
+    flex: 1,
+  },
+  developerLabel: {
     fontSize: 13,
-    color: '#636366',
-    fontWeight: '600',
+    color: '#8E8E93',
+    marginBottom: 4,
     letterSpacing: -0.1,
   },
-  footerSubtext: {
-    fontSize: 12,
-    color: '#48484A',
-    fontWeight: '500',
-    letterSpacing: -0.1,
-  },
-  developerText: {
-    fontSize: 13,
-    color: '#636366',
-    fontWeight: '500',
-    letterSpacing: -0.1,
+  developerName: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: -0.2,
   },
   documentationButton: {
     borderRadius: 18,

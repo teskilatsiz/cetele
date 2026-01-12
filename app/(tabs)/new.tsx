@@ -18,21 +18,24 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
-import { 
-  ChevronLeft, 
-  Bold, 
-  Italic, 
-  List, 
-  ListOrdered, 
-  Heading1, 
-  Heading2, 
+import {
+  ChevronLeft,
+  Bold,
+  Italic,
+  List,
+  ListOrdered,
+  Heading1,
+  Heading2,
   Strikethrough,
   Underline,
   Link,
   Pilcrow,
-  Hand // El ikonu
+  Hand,
+  PenLine
 } from 'lucide-react-native';
 import { RichEditor, RichToolbar, actions } from 'react-native-pell-rich-editor';
+import { LinearGradient } from 'expo-linear-gradient';
+import { BlurView } from 'expo-blur';
 import { nostrService } from '@/lib/nostr';
 import type { Note } from '@/types/note';
 import { router } from 'expo-router';
@@ -56,6 +59,8 @@ export default function NewNoteScreen() {
 
   const handOpacity = useRef(new Animated.Value(0)).current;
   const handTranslateX = useRef(new Animated.Value(0)).current;
+  const welcomeFadeAnim = useRef(new Animated.Value(0)).current;
+  const welcomeSlideAnim = useRef(new Animated.Value(30)).current;
 
   useFocusEffect(
     useCallback(() => {
@@ -68,6 +73,7 @@ export default function NewNoteScreen() {
           Animated.timing(handOpacity, { toValue: 1, duration: 500, useNativeDriver: true }),
           Animated.timing(handTranslateX, { toValue: 0, duration: 0, useNativeDriver: true })
         ]),
+
         Animated.timing(handTranslateX, {
           toValue: -60,
           duration: 1200,
@@ -76,6 +82,7 @@ export default function NewNoteScreen() {
         }),
         Animated.timing(handOpacity, { toValue: 0, duration: 500, useNativeDriver: true })
       ]);
+
       const animation = Animated.loop(swipeAnimation, { iterations: 2 });
       animation.start();
 
@@ -109,6 +116,23 @@ export default function NewNoteScreen() {
       checkAuth();
     }, [checkAuth])
   );
+
+  useEffect(() => {
+    if (!isAuthenticated && !loading) {
+      Animated.parallel([
+        Animated.timing(welcomeFadeAnim, {
+          toValue: 1,
+          duration: 600,
+          useNativeDriver: true,
+        }),
+        Animated.timing(welcomeSlideAnim, {
+          toValue: 0,
+          duration: 600,
+          useNativeDriver: true,
+        }),
+      ]).start();
+    }
+  }, [isAuthenticated, loading]);
 
   const handleAddLink = () => {
     Keyboard.dismiss();
@@ -194,9 +218,40 @@ export default function NewNoteScreen() {
 
   if (!isAuthenticated) {
     return (
-      <View style={styles.centerContainer}>
-        <Text style={{color:'white', fontSize: 16}}>Lütfen giriş yapınız.</Text>
-      </View>
+      <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+        <LinearGradient
+          colors={['#000000', '#0A0A0A', '#000000']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.gradient}>
+          <Animated.View
+            style={[
+              styles.welcomeContent,
+              {
+                opacity: welcomeFadeAnim,
+                transform: [{ translateY: welcomeSlideAnim }],
+              },
+            ]}>
+            <View style={styles.lockIconContainer}>
+              <PenLine size={64} color="#0A84FF" strokeWidth={2.5} />
+            </View>
+
+            <Text style={styles.welcomeTitle}>Şifreli Not Oluşturun</Text>
+            <Text style={styles.welcomeDescription}>
+              Not oluşturmak için giriş yapmalısınız. Tüm notlarınız uçtan uca şifrelenecek.
+            </Text>
+
+            <TouchableOpacity
+              style={styles.welcomeButton}
+              onPress={() => router.push('/(tabs)/settings')}
+              activeOpacity={0.8}>
+              <BlurView intensity={30} tint="dark" style={styles.welcomeButtonBlur}>
+                <Text style={styles.welcomeButtonText}>Giriş Yap</Text>
+              </BlurView>
+            </TouchableOpacity>
+          </Animated.View>
+        </LinearGradient>
+      </SafeAreaView>
     );
   }
 
@@ -389,6 +444,55 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000000',
+  },
+  gradient: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+  },
+  welcomeContent: {
+    width: '100%',
+    maxWidth: 400,
+    alignItems: 'center',
+  },
+  lockIconContainer: {
+    marginBottom: 40,
+  },
+  welcomeTitle: {
+    fontSize: 32,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    marginBottom: 16,
+    letterSpacing: -0.5,
+    textAlign: 'center',
+  },
+  welcomeDescription: {
+    fontSize: 17,
+    color: '#8E8E93',
+    textAlign: 'center',
+    lineHeight: 26,
+    letterSpacing: -0.2,
+    marginBottom: 40,
+  },
+  welcomeButton: {
+    width: '100%',
+    borderRadius: 16,
+    overflow: 'hidden',
+  },
+  welcomeButtonBlur: {
+    paddingVertical: 18,
+    paddingHorizontal: 24,
+    alignItems: 'center',
+    backgroundColor: 'rgba(10, 132, 255, 0.2)',
+    borderWidth: 1,
+    borderColor: 'rgba(10, 132, 255, 0.3)',
+  },
+  welcomeButtonText: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: '#0A84FF',
+    letterSpacing: -0.2,
   },
   header: {
     flexDirection: 'row',

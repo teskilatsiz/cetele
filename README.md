@@ -111,6 +111,48 @@ Traditional note apps:
 - **No Email Required**: Cryptographic identity only
 - **No Phone Number**: Complete anonymity possible
 
+## Releases
+
+### Version 1.0.1 (Latest)
+
+**Release Date**: January 2026
+
+First stable release of Çetele - Privacy-first encrypted note-taking on Nostr.
+
+**Features:**
+- NIP-44 Encryption with XChaCha20-Poly1305 authenticated encryption
+- NIP-59 Gift Wrapping for metadata privacy
+- Biometric authentication (Face ID, Touch ID, Fingerprint)
+- Hardware-backed secure key storage (Secure Enclave/Keystore)
+- Rich text editor with markdown support (bold, italic, headings, lists, links)
+- Multi-relay support with custom relay configuration
+- Offline caching with eventual consistency
+- Cross-platform support (iOS, Android, Web)
+- NIP-07 browser extension support for web
+- Real-time note synchronization across devices
+- Zero-knowledge architecture - relays cannot decrypt content
+- No registration, email, or phone number required
+
+**Security:**
+- 128-bit security level via secp256k1
+- Perfect Forward Secrecy with ephemeral keys
+- Authenticated encryption prevents tampering
+- Metadata privacy through gift wrapping
+- All encryption happens client-side
+
+**Download:**
+- Android: APK available for direct installation
+- iOS: Soon
+
+**Technical Stack:**
+- Expo SDK 54
+- React Native 0.81
+- TypeScript
+- nostr-tools 2.19
+- expo-local-authentication for biometric lock
+
+---
+
 ## Getting Started
 
 ### Installation
