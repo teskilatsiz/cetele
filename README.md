@@ -8,7 +8,7 @@
   <!-- Badges -->
   <p>
     <img src="https://img.shields.io/badge/React_Native-0.83-blue.svg?style=flat-square" alt="React Native" />
-    <img src="https://img.shields.io/badge/Expo-55.0-black.svg?style=flat-square" alt="Expo" />
+    <img src="https://img.shields.io/badge/Expo-57.0-black.svg?style=flat-square" alt="Expo" />
     <img src="https://img.shields.io/badge/TypeScript-5.9-blue.svg?style=flat-square" alt="TypeScript" />
     <img src="https://img.shields.io/badge/Nostr_Tools-2.23-purple.svg?style=flat-square" alt="Nostr Tools" />
   </p>
