@@ -1,0 +1,105 @@
+{
+  "name": "cetele",
+  "description": "Privacy-first note-taking on Nostr. Encrypted, censorship-resistant, decentralized.",
+  "main": "expo-router/entry",
+  "version": "1.0.6",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Teşkilatsız",
+    "email": "teskilatsiz@dev.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teskilatsiz/cetele.git"
+  },
+  "keywords": [
+    "note-taking",
+    "react-native",
+    "expo",
+    "nostr"
+  ],
+  "scripts": {
+    "dev": "expo start",
+    "android:expo-go": "expo start --android",
+    "android:prebuild": "expo prebuild --platform android --clean",
+    "android:run": "expo run:android",
+    "build:android:production": "eas build --platform android --profile production",
+    "build:web": "node scripts/generate-seo.mjs && expo export --platform web && node scripts/postbuild-web.mjs",
+    "lint": "expo lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo/ui": "~57.0.1",
+    "@expo/vector-icons": "^15.0.2",
+    "@formatjs/intl-getcanonicallocales": "^3.2.10",
+    "@formatjs/intl-locale": "^5.3.9",
+    "@formatjs/intl-numberformat": "^9.3.11",
+    "@formatjs/intl-pluralrules": "^6.3.10",
+    "@formatjs/intl-relativetimeformat": "^12.3.10",
+    "@gorhom/bottom-sheet": "^5.2.14",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@shopify/react-native-skia": "2.6.2",
+    "babel-plugin-react-compiler": "^19.0.0-beta-af1b7da-20250417",
+    "expo": "~57.0.1",
+    "expo-blur": "~57.0.0",
+    "expo-build-properties": "~57.0.2",
+    "expo-clipboard": "~57.0.0",
+    "expo-constants": "~57.0.2",
+    "expo-crypto": "~57.0.0",
+    "expo-document-picker": "~57.0.0",
+    "expo-file-system": "~57.0.0",
+    "expo-font": "~57.0.0",
+    "expo-haptics": "~57.0.0",
+    "expo-image-picker": "~57.0.1",
+    "expo-linear-gradient": "~57.0.0",
+    "expo-linking": "~57.0.1",
+    "expo-local-authentication": "~57.0.0",
+    "expo-localization": "~57.0.0",
+    "expo-navigation-bar": "~57.0.1",
+    "expo-print": "~57.0.0",
+    "expo-router": "~57.0.2",
+    "expo-secure-store": "~57.0.0",
+    "expo-sharing": "~57.0.1",
+    "expo-splash-screen": "~57.0.1",
+    "expo-status-bar": "~57.0.0",
+    "expo-store-review": "~57.0.0",
+    "expo-system-ui": "~57.0.0",
+    "expo-video": "~57.0.0",
+    "expo-web-browser": "~57.0.0",
+    "heroui-native": "^1.0.4",
+    "katex": "^0.17.0",
+    "lucide-react-native": "^0.544.0",
+    "nostr-tools": "^2.23.9",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.0",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-get-random-values": "~1.11.0",
+    "react-native-keyboard-controller": "1.21.9",
+    "react-native-reanimated": "4.5.0",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "4.25.2",
+    "react-native-svg": "15.15.4",
+    "react-native-url-polyfill": "^2.0.0",
+    "react-native-web": "^0.21.2",
+    "react-native-webview": "13.16.1",
+    "react-native-worklets": "0.10.0",
+    "uniwind": "^1.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.2.10",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~57.0.0",
+    "strip-comments": "^2.0.1",
+    "typescript": "~6.0.3"
+  },
+  "expo": {
+    "doctor": {
+      "appConfigFieldsNotSyncedCheck": {
+        "enabled": false
+      }
+    }
+  }
+}

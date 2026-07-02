@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /note/
+Disallow: /edit/
+Disallow: /new
+Disallow: /signer-callback
+
+Sitemap: https://cetele.app/sitemap.xml

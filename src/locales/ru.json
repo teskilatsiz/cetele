@@ -1,0 +1,13 @@
+{
+  "ios": {
+    "CFBundleDisplayName": "Çetele",
+    "CFBundleName": "Çetele",
+    "NSFaceIDUsageDescription": "Çetele использует Face ID, чтобы защитить доступ к зашифрованным заметкам и приватному ключу.",
+    "NSPhotoLibraryUsageDescription": "Çetele получает доступ к медиатеке, чтобы вы могли добавлять фото и видео к заметкам."
+  },
+  "android": {
+    "app_name": "Çetele",
+    "photos_permission": "Çetele получает доступ к медиатеке, чтобы вы могли добавлять фото и видео к заметкам.",
+    "face_id_permission": "Çetele использует биометрическую проверку, чтобы защитить доступ к зашифрованным заметкам и приватному ключу."
+  }
+}

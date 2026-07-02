@@ -1,0 +1,38 @@
+[build]
+  command = "EXPO_PUBLIC_SITE_URL=${EXPO_PUBLIC_SITE_URL:-$URL} npm run build:web"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+[[redirects]]
+  from = "/note/*"
+  to = "/note/[id].html"
+  status = 200
+
+[[redirects]]
+  from = "/edit/*"
+  to = "/edit/[id].html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/_expo/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/cetele-og.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

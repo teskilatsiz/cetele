@@ -1,0 +1,13 @@
+{
+  "ios": {
+    "CFBundleDisplayName": "Çetele",
+    "CFBundleName": "Çetele",
+    "NSFaceIDUsageDescription": "Çetele आपके एन्क्रिप्टेड नोट्स और निजी कुंजी की सुरक्षा के लिए Face ID का उपयोग करता है.",
+    "NSPhotoLibraryUsageDescription": "Çetele नोट्स में फोटो और वीडियो जोड़ने के लिए आपकी मीडिया लाइब्रेरी तक पहुंचता है."
+  },
+  "android": {
+    "app_name": "Çetele",
+    "photos_permission": "Çetele नोट्स में फोटो और वीडियो जोड़ने के लिए आपकी मीडिया लाइब्रेरी तक पहुंचता है.",
+    "face_id_permission": "Çetele आपके एन्क्रिप्टेड नोट्स और निजी कुंजी की सुरक्षा के लिए बायोमेट्रिक सत्यापन का उपयोग करता है."
+  }
+}

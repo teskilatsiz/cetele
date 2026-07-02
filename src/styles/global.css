@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+@import 'uniwind';
+@import 'heroui-native/styles';
+
+@source './node_modules/heroui-native/lib';
+
+@theme static {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-default-50: #111111;
+  --color-default-100: #222222;
+  --color-default-200: #333333;
+  --color-primary: #0a84ff;
+  --color-secondary: #ff453a;
+  --color-success: #34c759;
+  --color-warning: #ff9f0a;
+  --color-danger: #ff453a;
+}
+
+@layer theme {
+  :root {
+    @variant dark {
+      --background: #000000;
+      --foreground: #ffffff;
+      --accent: #0a84ff;
+      --danger: #ff453a;
+      --success: #34c759;
+      --warning: #ff9f0a;
+    }
+
+    @variant light {
+      --background: #000000;
+      --foreground: #ffffff;
+      --accent: #0a84ff;
+      --danger: #ff453a;
+      --success: #34c759;
+      --warning: #ff9f0a;
+    }
+  }
+}
+
+/* Custom Web Scrollbar */
+* { scrollbar-width: thin; scrollbar-color: #2C2C2E transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2C2C2E; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #3A3A3C; }
