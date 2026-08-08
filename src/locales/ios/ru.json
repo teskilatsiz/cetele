@@ -1,0 +1,6 @@
+{
+  "CFBundleDisplayName": "Çetele",
+  "CFBundleName": "Çetele",
+  "NSFaceIDUsageDescription": "Çetele использует Face ID для защиты доступа к зашифрованным заметкам и приватному ключу.",
+  "NSPhotoLibraryUsageDescription": "Çetele получает доступ к медиатеке, чтобы вы могли добавлять фото и видео к заметкам."
+}

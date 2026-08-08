@@ -1,0 +1,6 @@
+{
+  "CFBundleDisplayName": "Çetele",
+  "CFBundleName": "Çetele",
+  "NSFaceIDUsageDescription": "Çetele, şifreli notlarınıza güvenli erişim sağlamak ve gizli anahtarınızı yetkisiz erişimlerden korumak için Face ID doğrulaması kullanır.",
+  "NSPhotoLibraryUsageDescription": "Çetele, notlarınıza fotoğraf ve video eklemek için medya arşivinize erişir."
+}

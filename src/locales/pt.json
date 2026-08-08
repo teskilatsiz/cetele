@@ -1,0 +1,13 @@
+{
+  "ios": {
+    "CFBundleDisplayName": "Çetele",
+    "CFBundleName": "Çetele",
+    "NSFaceIDUsageDescription": "O Çetele usa Face ID para proteger o acesso às suas notas criptografadas e à sua chave privada.",
+    "NSPhotoLibraryUsageDescription": "O Çetele acessa sua biblioteca de mídia para anexar fotos e vídeos às notas."
+  },
+  "android": {
+    "app_name": "Çetele",
+    "photos_permission": "O Çetele acessa sua biblioteca de mídia para anexar fotos e vídeos às notas.",
+    "face_id_permission": "O Çetele usa autenticação biométrica para proteger o acesso às suas notas criptografadas e à sua chave privada."
+  }
+}
